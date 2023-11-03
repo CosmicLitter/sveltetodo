@@ -4,7 +4,7 @@ import type { Handle } from "@sveltejs/kit";
 
 export const handle: Handle = async ({ event, resolve }) => {
   event.locals.supabase = createSupabaseServerClient({
-    supabaseUrl: ENV.SUPABASE_DB_URL,
+    supabaseUrl: ENV.PUBLIC_SUPABASE_URL,
     supabaseKey: ENV.PUBLIC_SUPABASE_ANON_KEY,
     event
   })
