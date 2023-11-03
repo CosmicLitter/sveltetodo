@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { Actions, PageServerLoad } from "./$types";
 import { setError, superValidate } from "sveltekit-superforms/server";
-import { fail } from "@sveltejs/kit";
+import { fail, redirect } from "@sveltejs/kit";
 
 const registerUserSchema = z.object({
   username: z
@@ -22,6 +22,12 @@ const registerUserSchema = z.object({
 });
 
 export const load: PageServerLoad = async (event) => {
+  const session = await event.locals.getSession()
+
+  if (session) {
+    throw redirect(302, "/")
+  }
+  
   return {
     form: superValidate(registerUserSchema)
   }

@@ -10,7 +10,7 @@
 </script>
 
 <div>
-  <form class="grid grid-cols-4 gap-4" method="POST">
+  <form class="grid grid-cols-4 gap-4" method="POST" use:enhance>
     <label 
       class="col-span-1" 
       for="username">

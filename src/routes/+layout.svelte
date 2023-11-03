@@ -26,12 +26,18 @@
         <li>
           <a href="/">Home</a>
         </li>
+        {#if !session}
         <li>
           <a href="/login">Login</a>
         </li>
         <li>
           <a href="/register">Register</a>
         </li>
+        {:else}
+        <li>
+          <a href="/profile">Profile</a>
+        </li>
+        {/if}
       </ul>
     </nav>
   </div>
